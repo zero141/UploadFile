@@ -1,0 +1,12 @@
+{
+    "name": "app/test",
+    "authors": [
+        {
+            "name": "Vitaliy",
+            "email": "vitalikklih@gmail.com"
+        }
+    ],
+    "require": {
+        "lincanbin/php-pdo-mysql-class": "^2.0"
+    }
+}
