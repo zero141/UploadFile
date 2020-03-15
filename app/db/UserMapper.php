@@ -8,14 +8,25 @@
 
 namespace app\db;
 
+include_once "app/db/DataMapper.php";
+
+use PDOException;
+
 class UserMapper extends DataMapper
 {
     public static function insert($data)
     {
-        $sql = "INSERT INTO users(firstName, lastName, birthDate, email, createdAt) VALUES(:firstName,:lastName,:birthDate,:email,:createdAt)";
-        $stmt = self::$db->prepare($sql);
-        $stmt->execute($data);
+
+
+        $sql = "INSERT INTO users(firstName, lastName, birthDate, email, createdAt) VALUES(:firstName, :lastName, :birthDate, :email, :createdAt)";
+
+        try {
+            return self::$db->prepare($sql)->execute($data);
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
     }
+
 
     public static function insertMultiple($dataFields, $data)
     {
@@ -34,9 +45,9 @@ class UserMapper extends DataMapper
         try {
             $stmt->execute($insert_values);
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            return $e->getMessage();
         }
-        self::$db->commit();
+        return self::$db->commit();
     }
 
     private function placeholders($text, $count = 0, $separator = ",")

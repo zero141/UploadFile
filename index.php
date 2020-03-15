@@ -11,9 +11,9 @@ use app\db\DataMapper;
 use app\db\PDOConnection;
 use app\Main;
 
-include("app/db/PDOConnection.php");
-include("app/db/DataMapper.php");
-include("app/Main.php");
+include_once "app/db/PDOConnection.php";
+include_once "app/db/DataMapper.php";
+include_once "app/Main.php";
 
 $db = new PDOConnection();
 DataMapper::init($db);

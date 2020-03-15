@@ -11,7 +11,7 @@ namespace app;
 use app\controller\UserController;
 
 
-include("controller/UserController.php");
+include_once "controller/UserController.php";
 
 class Main
 {
@@ -19,28 +19,5 @@ class Main
     {
         $userController = new  UserController();
         $userController->uploadFileCsv();
-
-        /*
-                $dataFields = ['firstName', 'lastName', 'birthDate', 'email', 'createdAt'];
-
-                $data =
-                    [
-                        [
-                            "firstName" => "wert",
-                            "lastName" => "ad",
-                            "birthDate" => "sd",
-                            "email" => "45",
-                            "createdAt" => "adfsg",
-                        ],
-                        [
-                            "firstName" => "v",
-                            "lastName" => "p",
-                            "birthDate" => "d",
-                            "email" => "dafgfh",
-                            "createdAt" => "adfsgh",
-                        ]
-                    ];
-
-                UserMapper::insertMultiple($dataFields, $data);*/
     }
 }

@@ -11,7 +11,7 @@ namespace app\service;
 
 use app\db\UserMapper;
 
-include("app/db/UserMapper.php");
+include_once "app/db/UserMapper.php";
 
 class UserUpload
 {
@@ -24,8 +24,7 @@ class UserUpload
 
     public function make()
     {
-        $this->read();
-
+        return $this->read();
     }
 
     private function read()
@@ -37,7 +36,7 @@ class UserUpload
         while ($csvLine = fgetcsv($handle, 1000, ",")) {
 
             $i++;
-            $res[] = [
+            $res []= [
                 'firstName' => $csvLine[0],
                 'lastName' => $csvLine[1],
                 'birthDate' => $csvLine[2],
@@ -45,14 +44,16 @@ class UserUpload
                 'createdAt' => $csvLine[2]
             ];
 
+
             if ($i >= 10) {
                 $this->insert($res);
                 $i = 0;
                 $res = [];
-                exit();
+                return false;
             }
         }
-        return $res;
+
+        return true;
     }
 
     private function insert($data)
