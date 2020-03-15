@@ -2,13 +2,11 @@
 
 namespace Tests\Unit;
 
+use app\db\PDOConnection;
 use app\service\UserUpload;
 use PHPUnit\Framework\TestCase;
 
-include("app/service/UserUpload.php");
-include("app/db/UserMapper.php");
-include("app/db/PDOConnection.php");
-include("app/db/DataMapper.php");
+include_once "app/service/UserUpload.php";
 
 class UserUploadTest extends TestCase
 {
@@ -17,12 +15,9 @@ class UserUploadTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testUpload()
     {
-        $fileName = 'file.csv';
-
-        $userUpload = new UserUpload($fileName);
-
+        $userUpload = new UserUpload('file.csv');
         $this->assertTrue($userUpload->make());
     }
 }

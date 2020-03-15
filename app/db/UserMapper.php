@@ -16,8 +16,6 @@ class UserMapper extends DataMapper
 {
     public static function insert($data)
     {
-
-
         $sql = "INSERT INTO users(firstName, lastName, birthDate, email, createdAt) VALUES(:firstName, :lastName, :birthDate, :email, :createdAt)";
 
         try {

@@ -7,7 +7,8 @@
         }
     ],
     "require": {
-        "lincanbin/php-pdo-mysql-class": "^2.0"
+        "lincanbin/php-pdo-mysql-class": "^2.0",
+        "rakit/validation": "^1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"
